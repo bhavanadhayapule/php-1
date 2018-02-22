@@ -1,1 +1,76 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<body onload="loadEmployee()"/>
+<head>
+
+<meta charset="utf-8">
+<title>Add Employee</title>
+<link rel='stylesheet' href='add_employee.css' type='text/css' />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="Registration_validation.js"></script>
+</head>
+<!-- <body onload="document.registration.userid.focus();"> -->
+<h1 id="actionTitle"></h1>
+<body bgcolor="lightblue">
+<h1>Employee Form</h1>
+	<form name='registration' onsubmit="return false">
+		<ul>
+			<li><label for="fname">First Name: *</label></li>
+			<li><input type="text" name="fname" size="20" required/>
+			<span class="val_error" id="fname_error"></span>
+			</li>
+
+			<li><label for="mname">Middle Name: </label></li>
+			<li><input type="text" name="mname" size="12" /></li>
+
+			<li><label for="lname">Last Name: *</label></li>
+			<li><input type="text" name="lname" size="20" required/>
+			<span class="val_error" id="lname_error"></span>
+			</li>
+
+			<li><label for="email">EmailID: *</label></li>
+			<li><input type="text" name="email" size="50" onkeyup="checkemail()" required/>
+			<span class="val_error" id="email_error"></span>
+			</li>
+
+			<li><label id="mob">Mobile Number: *</label></li>
+			<li><input type="text" name="mob" size="50" required/>
+			<span class="val_error" id="mob_error"></span>
+			</li>
+
+			<li><label id="altemail">Alternative EmailID:</label></li>
+			<li><input type="text" name="altemail" size="50" /></li>
+
+			<li><label id="dept">Department:</label></li>
+			<li><select name="dept">
+			<option selected="">(----Please select a department----)</option>
+			<option value="Admin">Admin</option>
+			<option value="Testing">Testing</option>
+			<option value="Developement">Developement</option>
+			<option value="HR">HR</option>
+			<option value="Sales">Sales</option>
+			</select></li>
+
+			<li><label id="job">Job Title:</label></li>
+			<li><input type="text" name="job" size="50" /></li>
+
+			<li><label id="gender">Gender:</label></li>
+			 <li><input type="radio" id="msex" name="radioname" value="Male" checked/><span>Male</span></li>
+			 <li><input type="radio" id="fsex" name="radioname" value="Female" /><span>Female</span></li>
+
+			<li><label id="doj">Date Of Joining: *</label></li>
+			<li><input type="date" name="doj" size="50" required/>
+			<span class="val_error" id="doj_error"></span>
+			</li><br>
+			
+
+			<li><input type="submit" class="left button"  value="ADD" onclick="formValidation()" /></li><br>
+
+			<li><input type="button" class="left button" id="cancelBtn" value="CANCEL" onclick="cancelForm()"/></li>
+			
+
+		</ul>
+	</form>
+</body>
+</html>
