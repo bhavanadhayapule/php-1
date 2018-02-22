@@ -1,1 +1,214 @@
 
+h1 {
+margin-left: 70px;
+}
+form li {
+list-style: none;
+margin-bottom: 5px;
+}
+
+form ul li label{
+float: left;
+clear: left;
+width: 100px;
+text-align: right;
+margin-right: 10px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+}
+
+form ul li input, select, span {
+float: left;
+margin-bottom: 10px;
+}
+
+form textarea {
+float: left;
+width: 350px;
+height: 150px;
+}
+
+[type="submit"] {
+clear: left;
+margin: 20px 0 0 230px;
+font-size:18px
+}
+
+p {
+margin-left: 70px;
+font-weight: bold;
+}
+.val_error{
+    color: red; 
+}
+table {
+        position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+.employeeRecords{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 0px;
+}
+
+table, td, th {
+    border: 1px solid black;
+        padding: 5px
+}
+.rightButton{
+padding: 24px 0 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.-blue{
+        /* border: 1px solid #009ac8; */
+    color: #009ac8;
+    background-color: #009ac8;
+}
+.-fill {
+    border: 1px solid #939ca7;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+.button{
+        border-radius: 3px;
+    min-width: 80px;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 11px;
+    line-height: normal;
+}
+
+th {text-align: left;}
+.test{
+    margin-left: 10px;
+}
+.wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.left{
+    float:left;
+    margin-right: 10px
+}
+
+.right{
+    float:left;
+    margin-left: 10px
+    margin-top: 19px
+}
+
+
+---------------------------------------------------------------------------------------------------------
+REGISTRATION.HTML     
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body onload="loadEmployee()"/>
+<head>
+
+<meta charset="utf-8">
+<title>Add Employee</title>
+<link rel='stylesheet' href='add_employee.css' type='text/css' />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="Registration_validation.js"></script>
+</head>
+<!-- <body onload="document.registration.userid.focus();"> -->
+<h1 id="actionTitle"></h1>
+<body bgcolor="lightblue">
+<h1>Employee Form</h1>
+	<form name='registration' onsubmit="return false">
+		<ul>
+			<li><label for="fname">First Name: *</label></li>
+			<li><input type="text" name="fname" size="20" required/>
+			<span class="val_error" id="fname_error"></span>
+			</li>
+
+			<li><label for="mname">Middle Name: </label></li>
+			<li><input type="text" name="mname" size="12" /></li>
+
+			<li><label for="lname">Last Name: *</label></li>
+			<li><input type="text" name="lname" size="20" required/>
+			<span class="val_error" id="lname_error"></span>
+			</li>
+
+			<li><label for="email">EmailID: *</label></li>
+			<li><input type="text" name="email" size="50" onkeyup="checkemail()" required/>
+			<span class="val_error" id="email_error"></span>
+			</li>
+
+			<li><label id="mob">Mobile Number: *</label></li>
+			<li><input type="text" name="mob" size="50" required/>
+			<span class="val_error" id="mob_error"></span>
+			</li>
+
+			<li><label id="altemail">Alternative EmailID:</label></li>
+			<li><input type="text" name="altemail" size="50" /></li>
+
+			<li><label id="dept">Department:</label></li>
+			<li><select name="dept">
+			<option selected="">(----Please select a department----)</option>
+			<option value="Admin">Admin</option>
+			<option value="Testing">Testing</option>
+			<option value="Developement">Developement</option>
+			<option value="HR">HR</option>
+			<option value="Sales">Sales</option>
+			</select></li>
+
+			<li><label id="job">Job Title:</label></li>
+			<li><input type="text" name="job" size="50" /></li>
+
+			<li><label id="gender">Gender:</label></li>
+			 <li><input type="radio" id="msex" name="radioname" value="Male" checked/><span>Male</span></li>
+			 <li><input type="radio" id="fsex" name="radioname" value="Female" /><span>Female</span></li>
+
+			<li><label id="doj">Date Of Joining: *</label></li>
+			<li><input type="date" name="doj" size="50" required/>
+			<span class="val_error" id="doj_error"></span>
+			</li><br>
+			
+
+			<li><input type="submit" class="left button"  value="ADD" onclick="formValidation()" /></li><br>
+
+			<li><input type="button" class="left button" id="cancelBtn" value="CANCEL" onclick="cancelForm()"/></li>
+			
+
+		</ul>
+	</form>
+</body>
+</html>
